@@ -1,6 +1,6 @@
-import MoviesList from "../../components/MoviesList/MoviesList";
 import { useEffect, useState } from "react";
 import { fetchMovies } from "../../api";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <>
-      <MoviesList movies={movies} />
+      <MovieList movies={movies} />
     </>
   );
 }

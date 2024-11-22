@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../api";
 import BackLink from "../../components/BackLink/BackLink";
@@ -8,7 +8,7 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
 
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+  const backLinkHref = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     async function fetchArticle() {
@@ -35,7 +35,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <BackLink to={backLinkHref}>Back</BackLink>
+      <BackLink to={backLinkHref.current}>Back</BackLink>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

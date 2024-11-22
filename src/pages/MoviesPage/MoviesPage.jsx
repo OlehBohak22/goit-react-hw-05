@@ -1,5 +1,5 @@
 import { Field, Formik, Form } from "formik";
-import MoviesList from "../../components/MoviesList/MoviesList";
+import MovieList from "../../components/MovieList/MovieList";
 import { useState, useEffect } from "react";
 import { fetchMoviesByTopic } from "../../api";
 import { useSearchParams } from "react-router-dom";
@@ -44,7 +44,7 @@ export default function MoviesPage() {
           <button type="submit">Search</button>
         </Form>
       </Formik>
-      <MoviesList movies={movies} />
+      <MovieList movies={movies} />
     </>
   );
 }
